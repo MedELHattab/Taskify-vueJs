@@ -23,11 +23,11 @@
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
-                    <form class="d-flex nav_btn px-2" role="search" >
-                        <a href="sign.html" class="btn btn-primary">Connect</a>
-                    </form>
-                    <form class="d-flex nav_btn px-2" role="search">
-                        <a href="sign.html" class="btn btn-success">Register</a>
+                    
+                        <router-link to="/login" class="btn btn-outline-secondary btn-lg px-4">Sign in</router-link>
+                    
+                    <form class="d-flex nav_btn px-2">
+                        <router-link to="/register" class="btn btn-success">register</router-link>
                     </form>
                     <form class="d-flex nav_btn px-2" role="search">
                         <a href="sign.html" class="btn btn-danger">Log out</a>
