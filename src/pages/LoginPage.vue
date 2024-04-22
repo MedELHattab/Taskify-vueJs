@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import axios from '@/http/api.js';
+import api from '@/http/api.js';
 export default {
     data() {
         return {
@@ -56,11 +56,11 @@ export default {
     },
     methods: {
   login() {
-    axios.post('/login', this.user)
+    api.post('/login', this.user)
       .then(response => {
         console.log(response.data);
-        this.success = true;
-        this.error = false;
+      localStorage.setItem("token",response.data.token)
+
         // Navigate directly to the /tasks route
         this.$router.push('/tasks');
       })

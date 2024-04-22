@@ -2,10 +2,12 @@
 <script setup>
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
+import tasks from './pages/TaskPage.vue';
 </script>
 
 <template>
   <Navbar />
+  <!-- <tasks /> -->
   <router-view v-slot="{ Component }">
     <transition name="fade" mode="out-in">
       <component :is="Component" />

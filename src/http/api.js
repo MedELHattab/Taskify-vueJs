@@ -1,9 +1,28 @@
 import axios from "axios";
-axios.defaults.withCredentials = true ;
 
+// Set Axios default configurations
+axios.defaults.withCredentials = true;
 
+// Create Axios instance
 const api = axios.create({
-    baseURL : import.meta.env.VITE_BASE_URL 
-})
+    baseURL: import.meta.env.VITE_BASE_URL
+});
 
-export default api
+// Add a request interceptor to attach token to headers
+api.interceptors.request.use(
+    (config) => {
+        // Retrieve token from localStorage
+        const token = localStorage.getItem("token");
+
+        // If token exists, add it to the request headers
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
+export default api;

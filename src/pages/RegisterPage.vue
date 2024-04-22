@@ -46,10 +46,11 @@ const form = reactive({
 })
 
 const handleSubmit = async () => {
-    await handleRegister(form)
-    if (isLoggedIn.value) {
-        router.push({ name: 'tasks' })
-    }
+   const res =  await handleRegister(form)
+   
+     
+        router.push("/login")
+    
 }
 </script>
 
